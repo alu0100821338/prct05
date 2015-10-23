@@ -1,4 +1,4 @@
-require "./gcd.rb" 
+require_relative "./gcd" 
 
 
 class Fraccion
@@ -20,8 +20,7 @@ class Fraccion
 
   def +(other)
 	if @d == other.d
-	    Fraccion.new(@n + other.n, @d)
-	end 
+	    Fraccion.new(@n + other.n, @d) 
 	else
 	dd=@d * other.d
 	nn1=(dd / @d) * @n
@@ -31,17 +30,14 @@ class Fraccion
 		if a != 1
 			num=num/a
 			dd=dd/a
-			Fraccion.new(num, dd)
 		end
-		else
 			Fraccion.new(num, dd)
-		
+	end	
   end 
 
 	def -(other)
 		if @d == other.d
 			Fraccion.new(@n - other.n, @d)
-		end
 		else
 		dd=@d * other.d
 		nn1=(dd / @d)* other.n
@@ -51,20 +47,22 @@ class Fraccion
 				if a != 1
 					num=num/a
 					dd=dd/a
-					Fraccion.new(num, dd)
 				end
-				else
-					Fraccion.new(num, dd)
+		Fraccion.new(num, dd)
+		end
 	end
 
 
 	def to_s
 		a=gcd(@n, @d)
 		if a!=1
-			@n=@n/a
-			@d=@d/a
-		end
+			num=@n/a
+			den=@d/a
+			"#{num}/#{den}"
+
+		else
  		"#{@n}/#{@d}"
+		end
 	end
 
 	def *(other)
