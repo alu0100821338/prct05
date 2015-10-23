@@ -1,67 +1,53 @@
-require_relative "./gcd" 
+require_relative "gcd" 
 
 
 class Fraccion
 
-  include Comparable
-  attr_reader :n, :d
+    attr_reader :n, :d
 
   def initialize(n,d)
     @n, @d = n, d
   end
 
-  def *(value)
-    Fraccion.new(@n * value, @d)
-  end
-
-  def -@
-    Fraccion.new(-@n, @d)
-  end
-
   def +(other)
-	if @d == other.d
-	    Fraccion.new(@n + other.n, @d) 
-	else
 	dd=@d * other.d
-	nn1=(dd / @d) * @n
-	nn2=(dd / other.d) * other.n
-	num=nn1 + nn2
+	nn1=(dd/@d) * @n
+	nn2=(dd/other.d) * other.n
+	num=nn1+nn2
 		a=gcd(num, dd)
 		if a != 1
 			num=num/a
 			dd=dd/a
 		end
 			Fraccion.new(num, dd)
-	end	
   end 
 
 	def -(other)
-		if @d == other.d
-			Fraccion.new(@n - other.n, @d)
-		else
 		dd=@d * other.d
-		nn1=(dd / @d)* other.n
-		nn2=(dd / other.d) * other.n
-		num=nn1 - nn2
-			a=gcd(num, dd)
+		nn1=(dd/@d)* other.n
+		nn2=(dd/other.d) * other.n
+		num=nn1-nn2
+			a=gcd(num,dd)
 				if a != 1
 					num=num/a
 					dd=dd/a
 				end
 		Fraccion.new(num, dd)
-		end
+#		end
 	end
 
 
 	def to_s
-		a=gcd(@n, @d)
+		num=@n
+		den=@d
+		a=gcd(num, den)
 		if a!=1
-			num=@n/a
-			den=@d/a
+			num=num/a
+			den=den/a
 			"#{num}/#{den}"
 
 		else
- 		"#{@n}/#{@d}"
+ 		"#{num}/#{den}"
 		end
 	end
 
@@ -74,7 +60,7 @@ class Fraccion
 				nn=nn/a
 				dd=dd/a
 			end
-		Fraccion.new( nn, dd)
+		Fraccion.new(nn, dd)
   	end
 
 	def /(other)
@@ -89,4 +75,4 @@ class Fraccion
 		Fraccion.new(nn, dd)
 	end
  
- end
+end
