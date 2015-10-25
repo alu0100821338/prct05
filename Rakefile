@@ -1,9 +1,7 @@
-desc "build HTML from README.md" 
-task :html do
-  sh "kramdown README.md > README.html" 
-end 
+task :default => :test_simple
 
-desc "install gems" 
-task :install do
-  sh "bundle install"
+
+desc "Ejecutar solo las pruebas simples"
+task :test_simple do
+  sh "ruby test/tc_racional.rb"
 end
