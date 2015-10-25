@@ -30,5 +30,11 @@ class Test_Fraccion < Test::Unit::TestCase
 	assert_equal("1/6", (Fraccion.new(-2, 3)*Fraccion.new(-1, 4)).to_s)
   end
 
+  def test_division
+	assert_equal("9/-4", (Fraccion.new(3, 2)/Fraccion.new(-2, 3)).to_s)
+	assert_equal("1/1", (Fraccion.new(1, 2)/Fraccion.new(1, 2)).to_s)
+	assert_equal("-3/2", (Fraccion.new(-1, 2)/Fraccion.new(1, 3)).to_s)
+  end
+
 
 end
