@@ -6,7 +6,12 @@ task :test_simple do
   sh "ruby test/tc_racional.rb"
 end
 
-desc "Ejecutar solo las pruebas simples"
+desc "Ejecutar sumas"
 task :test_suma do
+  sh "ruby test/tc_racional.rb"
+end
+
+desc "Ejecutar restas"
+task :test_resta do
   sh "ruby test/tc_racional.rb"
 end
