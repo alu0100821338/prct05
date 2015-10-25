@@ -24,5 +24,11 @@ class Test_Fraccion < Test::Unit::TestCase
 	assert_equal("-4/3", (Fraccion.new(1, 3)-Fraccion.new(5, 3)).to_s)
   end
 
+  def test_producto
+	assert_equal("1/6", (Fraccion.new(2, 3)*Fraccion.new(1, 4)).to_s)
+	assert_equal("-1/6", (Fraccion.new(-2, 3)*Fraccion.new(1, 4)).to_s)
+	assert_equal("1/6", (Fraccion.new(-2, 3)*Fraccion.new(-1, 4)).to_s)
+  end
+
 
 end

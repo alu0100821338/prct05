@@ -15,3 +15,8 @@ desc "Ejecutar restas"
 task :test_resta do
   sh "ruby test/tc_racional.rb"
 end
+
+desc "Ejecutar multiplicaciones"
+task :test_producto do
+  sh "ruby test/tc_racional.rb"
+end
