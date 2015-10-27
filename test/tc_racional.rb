@@ -2,9 +2,18 @@ require_relative "../lib/racional"
 require "test/unit" 
 
 class Test_Fraccion < Test::Unit::TestCase
+	
+	def setup
+    @unidad = Fraccion.new(1,1)
+    @origen = Fraccion.new(2,3)
+  end
+  
+  def tear_down
+    # nothing
+  end
 
   def test_simple
-	assert_equal("1/1", Fraccion.new(1, 1).to_s)
+	assert_equal("1/1", @unidad.to_s)
 	assert_equal("3/5", Fraccion.new(3, 5).to_s)
   	assert_equal("2/3", Fraccion.new(4, 6).to_s)
 	assert_equal("-2/3", Fraccion.new(-4, 6).to_s)
@@ -25,7 +34,7 @@ class Test_Fraccion < Test::Unit::TestCase
   end
 
   def test_producto
-	assert_equal("1/6", (Fraccion.new(2, 3)*Fraccion.new(1, 4)).to_s)
+	assert_equal("1/6", (@origen*Fraccion.new(1, 4)).to_s)
 	assert_equal("-1/6", (Fraccion.new(-2, 3)*Fraccion.new(1, 4)).to_s)
 	assert_equal("1/6", (Fraccion.new(-2, 3)*Fraccion.new(-1, 4)).to_s)
   end
